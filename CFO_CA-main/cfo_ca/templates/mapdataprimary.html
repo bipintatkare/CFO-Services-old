@@ -1,0 +1,401 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>ATMS</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/dashboard/sb-admin-2.min.css' %}" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <style>
+input[type=text], select {
+    padding: 5px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 60px 20px 100px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+@media screen and (min-width: 600px) {
+
+input[type=text], select {
+   width: 60%;
+}
+
+
+
+input[type=submit] {
+  width: 60%;
+
+}
+
+}
+
+
+
+
+
+</style>
+
+
+
+</head>
+
+<body id="page-top">
+
+<style>
+
+* {
+color:;
+}
+  .faicons {
+  font-size: 18px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #5a5c69;
+  }
+
+  .icon-border {
+  border: 1px solid #d1d3e2;
+  border-radius: 5px 1px 1px 5px;
+  border-right: none;
+
+
+  }
+
+  .control-label {
+  color: black;
+
+  }
+
+</style>
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+	{% include 'base_templates/sidebar.html' %}
+
+    <!-- Sidebar -->
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content" style="background-color: white;">
+
+
+<style type="text/css">
+
+  * {
+  font-family: 'Montserrat';
+
+  }
+
+  table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  border: 1px solid black;
+
+
+}
+
+
+th {
+
+  padding: 8px;
+  font-size: 13px;
+  color: black;
+    border: 1px solid black;
+
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.alignL {
+  text-align: left; padding-left: 15px;
+  color: black;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.alignR {
+  text-align: right; padding-right: 10px;
+}
+
+
+
+.float{
+	position:fixed;
+	width:100px;
+	height:35px;
+	bottom:10px;
+	right:45%;
+	background-color:#4e73df;
+	color:#FFF;
+	border-radius:10px;
+	text-align:center;
+	font-size: 20px;
+	<!--box-shadow: 2px 2px 3px black;-->
+
+}
+
+.my-float{
+	margin-top:22px;
+}
+
+</style>
+        <!-- Topbar -->
+	{% include 'base_templates/navbar_for_dashboard.html' %}
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+         <center>  <h1 style="color: black; font-size: 25px;">Trial Balance</h1>  </center>
+
+    <br><br>
+
+    <div id="tbConvertToJSON"></div>
+
+          <div class="row" style="padding:20px;">
+
+
+
+              <table id="sampleTbl">
+
+                <tr>
+                  <th style="width: 5%;">Sr. No.</th>
+                  <th style="width: 5%;">Description</th>
+                  <!--<th style="width: 5%;">Credit</th>-->
+                  <!--<th style="width: 5%;">Debit</th>-->
+                  <th style="width: 5%;">Final</th>
+                  <th style="width: 5%;">Primary Mapping</th>
+                  <th style="width: 5%;">Parent Mapping</th>
+                  <th style="width: 5%;">Change Default Mapping</th>
+                  <!--<th style="width: 5%;">Notes</th>-->
+                  <!--<th style="width: 5%;">Report</th>-->
+                </tr>
+
+                {% for item in list_data %}
+                <tr>
+                  <td> {{ forloop.counter }} </td>
+                  <td>{{item.description}}</td>
+                  <td>{{item.final}}</td>
+                  <td>{{item.tally_mapping_primary}}</td>
+                  <td>{{item.tally_mapping_parent}}</td>
+
+                  <td><a href="mapdata/{{item.pk}}"><button>Map this</button></a></td>
+
+
+                  <!--<td>{{item.notes_mapping}}</td>-->
+                  <!--<td>{{item.report_mapping}}</td>-->
+
+
+                </tr>
+
+
+
+
+            <!--<a href="#"  class="float" style="  color: white; text-decoration: none;">-->
+<!--</a>-->
+{% endfor %}
+
+
+</table></div></div></div></div>
+
+
+<br><center></center>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+function choice1(select) {
+     //alert(select.options[select.selectedIndex].value);
+    $.ajax({                       // initialize an AJAX request
+        url: "/select_dropdown/",                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'item_id': select.options[select.selectedIndex].value       // add the country id to the GET parameters
+
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+
+        }
+      });
+}
+</script>
+<!--<form id="TBForm"  method='POST' data-url="/select_dropdown/" action="">{% csrf_token %}-->
+<!--<select id="item_id" onchange="choice1(this)">-->
+                    <!--<option value="xyx">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>-->
+                    <!--{% for it in tally_ids %}-->
+                    <!--<option value="{{item.pk}}-&#45;&#45;{{it.name}}">{{it.name}}</option>-->
+
+                    <!--{% endfor %}-->
+                  <!--</select>-->
+ <!--</form>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<script>-->
+
+
+      <!--$("#item_id2").change(function () {-->
+
+      <!--var item_id = $(this).val();  // get the selected country ID from the HTML input-->
+
+      <!--$.ajax({                       // initialize an AJAX request-->
+        <!--url: "/select_dropdown/",                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)-->
+        <!--data: {-->
+          <!--'item_id': item_id       // add the country id to the GET parameters-->
+
+        <!--},-->
+        <!--success: function (data) {   // `data` is the return of the `load_cities` view function-->
+
+        <!--}-->
+      <!--});-->
+
+    <!--});-->
+<!--</script>-->
+
+<script>
+
+
+
+
+
+
+
+       function storeAndShowTableValues()
+        {
+            var TableData;
+            TableData = storeTblValues();
+            $('#tbConvertToJSON').html('<br>JS Array: <br>' + print_r(TableData));
+        }
+        function storeTblValues()
+        {
+            var TableData = new Array();
+
+            $('#sampleTbl tr').each(function (row, tr) {
+                TableData[row] = {
+
+                    , "mapping": $(tr).find('td:eq(5)').text()
+                    , "mapping": $(tr).find('td:eq(5)').text()
+
+
+                }
+            });
+            TableData.shift();  // first row will be empty - so remove
+            return TableData;
+        }
+
+        function convertArrayToJSON()
+        {
+            var TableData;
+            TableData = $.toJSON(storeTblValues());
+            $('#tbConvertToJSON').html('<br>JSON array: <br>' + TableData.replace(/},/g, "},<br>"));
+
+
+
+
+        }
+
+
+        /*! jQuery JSON plugin 2.4.0 | code.google.com/p/jquery-json */
+(function($){'use strict';var escape=/["\\\x00-\x1f\x7f-\x9f]/g,meta={'\b':'\\b','\t':'\\t','\n':'\\n','\f':'\\f','\r':'\\r','"':'\\"','\\':'\\\\'},hasOwn=Object.prototype.hasOwnProperty;$.toJSON=typeof JSON==='object'&&JSON.stringify?JSON.stringify:function(o){if(o===null){return'null';}
+var pairs,k,name,val,type=$.type(o);if(type==='undefined'){return undefined;}
+if(type==='number'||type==='boolean'){return String(o);}
+if(type==='string'){return $.quoteString(o);}
+if(typeof o.toJSON==='function'){return $.toJSON(o.toJSON());}
+if(type==='date'){var month=o.getUTCMonth()+1,day=o.getUTCDate(),year=o.getUTCFullYear(),hours=o.getUTCHours(),minutes=o.getUTCMinutes(),seconds=o.getUTCSeconds(),milli=o.getUTCMilliseconds();if(month<10){month='0'+month;}
+if(day<10){day='0'+day;}
+if(hours<10){hours='0'+hours;}
+if(minutes<10){minutes='0'+minutes;}
+if(seconds<10){seconds='0'+seconds;}
+if(milli<100){milli='0'+milli;}
+if(milli<10){milli='0'+milli;}
+return'"'+year+'-'+month+'-'+day+'T'+
+hours+':'+minutes+':'+seconds+'.'+milli+'Z"';}
+pairs=[];if($.isArray(o)){for(k=0;k<o.length;k++){pairs.push($.toJSON(o[k])||'null');}
+return'['+pairs.join(',')+']';}
+if(typeof o==='object'){for(k in o){if(hasOwn.call(o,k)){type=typeof k;if(type==='number'){name='"'+k+'"';}else if(type==='string'){name=$.quoteString(k);}else{continue;}
+type=typeof o[k];if(type!=='function'&&type!=='undefined'){val=$.toJSON(o[k]);pairs.push(name+':'+val);}}}
+return'{'+pairs.join(',')+'}';}};$.evalJSON=typeof JSON==='object'&&JSON.parse?JSON.parse:function(str){return eval('('+str+')');};$.secureEvalJSON=typeof JSON==='object'&&JSON.parse?JSON.parse:function(str){var filtered=str.replace(/\\["\\\/bfnrtu]/g,'@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,']').replace(/(?:^|:|,)(?:\s*\[)+/g,'');if(/^[\],:{}\s]*$/.test(filtered)){return eval('('+str+')');}
+throw new SyntaxError('Error parsing JSON, source is not valid.');};$.quoteString=function(str){if(str.match(escape)){return'"'+str.replace(escape,function(a){var c=meta[a];if(typeof c==='string'){return c;}
+c=a.charCodeAt();return'\\u00'+Math.floor(c/16).toString(16)+(c%16).toString(16);})+'"';}
+return'"'+str+'"';};}(jQuery));
+
+</script>
+
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Bootstrap core JavaScript-->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{% static 'js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
+
+</body>
+
+</html>

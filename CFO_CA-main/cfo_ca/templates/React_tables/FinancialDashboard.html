@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>CFO Services</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+</head>
+
+<body id="page-top">
+
+
+
+        <style type="text/css">
+
+          * {
+            font-family: 'Montserrat';
+            background-color: white;
+
+          }
+
+          table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #00cccc;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+            0px 10px 20px rgba(0,0,0,0.05),
+            0px 20px 20px rgba(0,0,0,0.05),
+            0px 30px 20px rgba(0,0,0,0.05);
+
+
+          }
+
+          th {
+
+            padding: 8px;
+
+          }
+
+          td {
+            border: 1px solid black;
+            padding: 5px;
+
+          }
+
+          .alignL {
+            text-align: left; padding-left: 15px;
+            color: black;
+            font-weight: 600;
+            font-size: 13px;
+          }
+
+          .alignR {
+            text-align: right; padding-right: 10px;
+          }
+
+        </style>
+
+
+<center><h2> Financial Dashboard For Business Owners</h2> </center>
+        <br>
+        <br>
+
+
+                 <table style="border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #00cccc;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+            0px 10px 20px rgba(0,0,0,0.05),
+            0px 20px 20px rgba(0,0,0,0.05),
+            0px 30px 20px rgba(0,0,0,0.05);">
+                  <tr style="border: 1px solid black;">
+                    <th colspan="8" style="background: #606060; color: white; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Sales </th>
+                  </tr>
+                  <tr style="border: 1px solid black;">
+                    <td  style="border: 1px solid black;" colspan="4"> Current Month</td>
+                    <td  style="border: 1px solid black;" colspan="4">Till Date</td>
+                  </tr>
+
+                  <tr style="border: 1px solid black;">
+                    <td  style="border: 1px solid black;" colspan="2">Budget Figures</td>
+                    <td  style="border: 1px solid black;" colspan="2">Actual Figures</td>
+                    <td  style="border: 1px solid black;" colspan="2">Budget Figures</td>
+                    <td  style="border: 1px solid black;" colspan="2">Actual Figures</td>
+                  </tr>
+
+                  <tr style="border: 1px solid black;">
+                    <td  style="border: 1px solid black;" colspan="2"> </td>
+                    <td  style="border: 1px solid black;" colspan="2">{{Item.sales_current_month}} </td>
+                    <td  style="border: 1px solid black;" colspan="2"> {{Item.budget.sales}}</td>
+                    <td  style="border: 1px solid black;" colspan="2">{{Item.sales_actual_till_date}}</td>
+
+                  </tr>
+                 </table><br/>
+        <table style="border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #00cccc;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+            0px 10px 20px rgba(0,0,0,0.05),
+            0px 20px 20px rgba(0,0,0,0.05),
+            0px 30px 20px rgba(0,0,0,0.05);">
+
+                <tr style="border: 1px solid black;">
+                  <th colspan="8" style="background-color: #606060; color: white; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Gross Margin </th>
+                </tr>
+                <tr style="border: 1px solid black;">
+                  <td  style="border: 1px solid black;" colspan="4"> Current Month</td>
+                  <td  style="border: 1px solid black;" colspan="4">Till Date</td>
+                </tr>
+
+                <tr style="border: 1px solid black;">
+                  <td  style="border: 1px solid black;">Budget %</td>
+                  <td  style="border: 1px solid black;">Budget Figures</td>
+                  <td  style="border: 1px solid black;">Actual %</td>
+                  <td  style="border: 1px solid black;">Actual Figures</td>
+
+                  <td  style="border: 1px solid black;">Budget %</td>
+                  <td  style="border: 1px solid black;">Budget Figures</td>
+                  <td  style="border: 1px solid black;">Actual %</td>
+                  <td  style="border: 1px solid black;">Actual Figures</td>
+                </tr>
+
+                <tr style="border: 1px solid black;">
+                  <td  style="border: 1px solid black;"> <br> </td>
+                  <td  style="border: 1px solid black;"> </td>
+                  <td  style="border: 1px solid black;">{{Item.gross_per_current_month}}</td>
+                  <td  style="border: 1px solid black;">{{Item.gross_margin_current_month}}</td>
+
+                  <td  style="border: 1px solid black;"> {{Item.budget.gross}}</td>
+                  <td  style="border: 1px solid black;"> {{Item.budget.gross}}</td>
+                  <td  style="border: 1px solid black;"> {{Item.gross_per_till_date}} %</td>
+                  <td  style="border: 1px solid black;"> {{Item.gross_margin}} </td>
+                </tr>
+        </table><br/>
+        <table style="border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #00cccc;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+            0px 10px 20px rgba(0,0,0,0.05),
+            0px 20px 20px rgba(0,0,0,0.05),
+            0px 30px 20px rgba(0,0,0,0.05);">
+
+              <tr style="border: 1px solid black;">
+                <th colspan="8" style="background-color: #606060; color: white; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Net Profit </th>
+              </tr>
+              <tr style="border: 1px solid black;">
+                <td  style="border: 1px solid black;" colspan="4"> Current Month</td>
+                <td  style="border: 1px solid black;" colspan="4">Till Date</td>
+              </tr>
+
+              <tr style="border: 1px solid black;">
+                <td  style="border: 1px solid black;" colspan="2">Budget Figures</td>
+                <td  style="border: 1px solid black;" colspan="2">Actual Figures</td>
+                <td  style="border: 1px solid black;" colspan="2">Budget Figures</td>
+                <td  style="border: 1px solid black;" colspan="2">Actual Figures</td>
+              </tr>
+
+              <tr style="border: 1px solid black;">
+                <td  style="border: 1px solid black;" colspan="2"> </td>
+                <td  style="border: 1px solid black;" colspan="2"> {{Item.net_profit_current_month}}</td>
+                <td  style="border: 1px solid black;" colspan="2">{{Item.budget.nett}}</td>
+                <td  style="border: 1px solid black;" colspan="2">{{Item.net_profit}} </td>
+              </tr>
+        </table><br/>
+        <table style="border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #00cccc;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+            0px 10px 20px rgba(0,0,0,0.05),
+            0px 20px 20px rgba(0,0,0,0.05),
+            0px 30px 20px rgba(0,0,0,0.05);">
+
+            <tr style="border: 1px solid black;">
+              <th colspan="8" style="background-color: #606060; color: white; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Sundry Debtors (Accounts Receivable)</th>
+            </tr>
+
+            <tr style="text-align: left;border: 1px solid black;">
+              <td  style="border: 1px solid black; padding-left: 15px;" colspan="4">Outstanding</td>
+              <td  style="border: 1px solid black;" colspan="4">{{Item.SundryDebtors}}</td>
+            </tr>
+
+            <tr style="border: 1px solid black;">
+              <td  style="border: 1px solid black;text-align: left; padding-left: 15px;" colspan="4">Number Of Days</td>
+              <td  style="border: 1px solid black;" colspan="4">{{Item.no_of_days}}</td>
+            </tr>
+
+            <tr style="border: 1px solid black;">
+              <td  style="border: 1px solid black;text-align: left; padding-left: 15px;" colspan="4">More Than 3 Months</td>
+              <td  style="border: 1px solid black;" colspan="4"> {{Item.more_than_three_month_debtors}}</td>
+            </tr>
+
+            <tr style="border: 1px solid black;">
+              <td  style="border: 1px solid black; text-align:left; padding-left: 15px;" colspan="4">More Than 6 Months</td>
+              <td  style="border: 1px solid black;" colspan="4">{{Item.more_than_six_month_debtors}} </td>
+            </tr>
+        </table><br/>
+        <table style="border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #00cccc;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+            0px 10px 20px rgba(0,0,0,0.05),
+            0px 20px 20px rgba(0,0,0,0.05),
+            0px 30px 20px rgba(0,0,0,0.05);">
+
+            <tr style="border: 1px solid black;">
+              <th colspan="8" style="background-color: #606060; color: white; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Sundry Creditors (Accounts Payable)</th>
+            </tr>
+
+            <tr style="text-align: left;border: 1px solid black;">
+              <td  style="border: 1px solid black; padding-left: 15px;" colspan="4">Outstanding</td>
+              <td  style="border: 1px solid black;" colspan="4">{{Item.SundryCreditors}}</td>
+            </tr>
+
+            <tr style="border: 1px solid black;">
+              <td  style="border: 1px solid black;text-align: left; padding-left: 15px;" colspan="4">Number Of Days</td>
+              <td  style="border: 1px solid black;" colspan="4">{{Item.no_of_days_creditors}}</td>
+            </tr>
+
+            <tr style="border: 1px solid black;">
+              <td  style="border: 1px solid black;text-align: left; padding-left: 15px;" colspan="4">More Than 3 Months</td>
+              <td  style="border: 1px solid black;" colspan="4"> {{Item.more_than_three_month_creditors}}</td>
+            </tr>
+        </table><br/>
+        <table style="border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #00cccc;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+            0px 10px 20px rgba(0,0,0,0.05),
+            0px 20px 20px rgba(0,0,0,0.05),
+            0px 30px 20px rgba(0,0,0,0.05);">
+
+
+        <tr style="border: 1px solid black;">
+          <th colspan="8" style="background-color: #606060; color: white; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Inventories</th>
+        </tr>
+
+        <tr style="text-align: left;border: 1px solid black;">
+          <td  style="border: 1px solid black; padding-left: 15px;" colspan="4">Valuation</td>
+          <td  style="border: 1px solid black;" colspan="4">{{Item.Inventories}}</td>
+
+          <tr style="border: 1px solid black;">
+            <td  style="border: 1px solid black;text-align: left; padding-left: 15px;" colspan="4">Number Of Days</td>
+            <td  style="border: 1px solid black;" colspan="4"></td>
+          </tr>
+
+          <tr style="border: 1px solid black;">
+            <td  style="border: 1px solid black;text-align: left; padding-left: 15px;" colspan="4">In Stock For More Than 90 Days</td>
+            <td  style="border: 1px solid black;" colspan="4"> </td>
+          </tr>
+        </table>
+        <br/>
+        <table style="border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #00cccc;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+            0px 10px 20px rgba(0,0,0,0.05),
+            0px 20px 20px rgba(0,0,0,0.05),
+            0px 30px 20px rgba(0,0,0,0.05);">
+
+
+        <tr style="border: 1px solid black;">
+          <th colspan="8" style="background-color: #606060; color: white; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Major Expenses</th>
+        </tr>
+
+        <tr style="border: 1px solid black;">
+          <td  style="border: 1px solid black;text-align: left; padding-left: 15px;" rowspan="2" colspan="2">Perticulars</td>
+          <td  style="border: 1px solid black;" colspan="3">Current Month</td>
+          <td  style="border: 1px solid black;" colspan="3">Till Date</td>
+
+        </tr>
+
+        <tr style="border: 1px solid black;">
+          <td  style="border: 1px solid black;" colspan="2">Budgeted Figures</td>
+          <td  style="border: 1px solid black;" colspan="1">Actual Figures</td>
+          <td  style="border: 1px solid black;" colspan="2">Budgeted Figures</td>
+          <td  style="border: 1px solid black;" colspan="1">Actual Figures</td>
+        </tr>
+
+           {% for obj in Item.major_expenses %}
+
+        <tr  style="border: 1px solid black;">
+          <td  style="border: 1px solid blacktext-align: left; padding-left: 15px;"  colspan="2">{{obj.name}}</td>
+          <td  style="border: 1px solid black;" colspan="1"><br></td>
+          <td  style="border: 1px solid black;" colspan="2">{{obj.budget}}</td>
+          <td  style="border: 1px solid black;"  colspan="1">{{obj.closing_balance}}</td>
+        </tr>
+           {% endfor %}
+
+      </table>
+
+
+
+
+
+
+</body>
+
+</html>

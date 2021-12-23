@@ -1,0 +1,3075 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+		<title>ATMS</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/dashboard/sb-admin-2.min.css' %}" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <style>
+input[type=text], select {
+    padding: 5px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 60px 20px 100px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+@media screen and (min-width: 600px) {
+
+input[type=text], select {
+   width: 60%;
+}
+
+
+
+input[type=submit] {
+  width: 60%;
+
+}
+
+}
+
+
+
+
+
+</style>
+
+</head>
+
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+	{% include 'base_templates/sidebar.html' %}
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+{% include 'base_templates/navbar_for_dashboard.html' %}        <!-- End of Topbar -->
+        <!-- End of Topbar -->
+
+
+
+
+<style type="text/css">
+
+	/* Full-width input fields */
+.qfinp {
+  width: 60%;
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  display: inline-block;
+
+border-radius: 10px;
+
+overflow: hidden;
+
+}
+.button {
+  background-color: #a0e418; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.lname {
+width: 35%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+border:3px solid #696969;
+border-radius: 10px;
+
+}
+
+.fname {
+width: 35%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+border:3px solid #696969;
+border-radius: 10px;
+
+}
+
+.drop {
+	width: 58%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+border:3px solid #696969;
+border-radius: 10px;
+}
+
+
+.qfinp:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+
+@media screen and (min-width: 600px) {
+
+.cont {
+	width:800px;
+}
+
+
+}
+@media screen and (max-width: 600px) {
+  .qfinp {
+    width: 100%;
+    margin-top: 0;
+  }
+
+
+
+
+  .lname {
+ width: 100%;
+    margin-top: 0;
+
+}
+
+.fname {
+ width: 100%;
+    margin-top: 0;
+
+
+
+}
+
+.drop {
+width: 100%;
+    margin-top: 0;
+}
+
+
+
+
+</style>
+        <style type="text/css">
+
+  * {
+  font-family: 'Montserrat';
+
+  }
+
+  table {
+  border-collapse: collapse;
+  width: 90%;
+  font-size: 13px;
+  border-color: black;
+  color: black;
+
+
+}
+
+
+th {
+
+  font-size: 13px;
+    border: 1px solid black;
+    text-align: left;
+
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.alignL {
+  text-align: left; padding-left: 15px;
+  color: black;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.alignR {
+  text-align: right; padding-right: 10px;
+}
+
+
+</style>
+       <style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+</style>
+
+
+
+
+<button class="tablink" onclick="openPage('Business_Profile', this, '#4e73df')" id="defaultOpen">BS- Note 3</button>
+          <button class="tablink" onclick="openPage('Selected_Subcategories', this, '#4e73df')">BS- Note 4-15</button>
+
+<button class="tablink" onclick="openPage('Payment_History', this, '#4e73df')" >BS Note 8</button>
+          <button class="tablink" onclick="openPage('plnotes', this, '#4e73df')">PL Notes 16-24</button>
+
+
+<div id="Business_Profile" class="tabcontent">
+
+        <div class="container-fluid">
+
+<table>
+<tr>
+<th>3</th>
+<th>Share Capital</th>
+<th>As at March31, 2019 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+<th>As at March31, 2018 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+</tr>
+
+<tr>
+<th></th>
+<th>Authorised</th>
+<th></th>
+<th></th>
+</tr>
+
+<tr>
+<td></td>
+<td>2,30,00,000 Equity shares of Rs 100/- each</td>
+<td>23,000.00 </td>
+<td>23,000.00 </td>
+</tr>
+<tr>
+<td> &nbsp;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<th></th>
+<th>Issued, subscribed and fully paid up</th>
+<th></th>
+<th></th>
+</tr>
+
+
+<tr>
+<td></td>
+<td>1,500,000 Equity shares of Rs 100/- each fully paid up</td>
+<td>1,500.00  </td>
+<td>20,011.87  </td>
+</tr>
+
+<tr>
+<td> &nbsp;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<th>1,500.00
+</th>
+<th>20,011.87
+</th>
+</tr>
+
+<tr>
+<td> &nbsp;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+ </table>
+<h5>a. The reconciliation of number of shares outstanding as at 31st March, 2019 and 31st March, 2018 is set out below:</h5>
+
+ <table>
+<tr>
+<th rowspan="2">Particulars</th>
+<th colspan="3">As At</th>
+</tr>
+
+<tr>
+<th>March 31, 2019</th>
+<th></th>
+<th>March 31, 2018</th>
+</tr>
+
+<tr>
+  <th>Equity Shares of Rs 100/- each fully paid up</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  </tr>
+
+<tr>
+  <td>Number of shares in the beginning</td>
+  <td>2,00,11,872</td>
+  <td></td>
+  <td>2,00,11,872</td>
+</tr>
+
+<tr>
+  <td>Less: Capital Reduction</td>
+  <td>(1,85,11,872)</td>
+  <td></td>
+  <td> - </td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>Number of shares in the end</td>
+  <td>15,00,000</td>
+  <td></td>
+  <td>2,00,11,872</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+ </table>
+
+
+<h5>b. Rights , preferences and restrictions attaching to each class of shares</h5>
+<br>
+<h5>Equity shares</h5><br>
+<p>The Company has only one class of equity shares having a par value of Rs 100/- per share. Each holder of equity shares is entitled to one vote per share. The Company has not declared any dividend for the year ended 31st March 2018.</p>
+<br>
+<p>In the event of liquidation of the Company, the holders of equity shares will be entitled to receive remaining assets of the Company, after distribution of all preferential amounts. The distribution will be in proportion to the number of equity shares held by the shareholders.</p>
+<br>
+<h5>c. Shares held by holding company or ultimate holding company including subsidiaries or  associates of holding company  or ultimate holding company, in aggregate</h5>
+<br>
+
+<table>
+<tr>
+ <th rowspan="2">Equity Shares/Preference Shares</th>
+ <th colspan="3">March 31, 2019</th>
+ <th colspan="3">March 31, 2018</th>
+</tr>
+
+<tr>
+  <th>Number</th>
+  <th></th>
+  <th>(Rs. In Lakhs)</th>
+  <th>Number</th>
+  <th></th>
+  <th>(Rs. In Lakhs)</th>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>Holding company</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>-Noble Resources International Pte Ltd</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>Equity shares of Rs 100/- each fully paid</td>
+  <td>15,00,000</td>
+  <td></td>
+  <td>{{sc}}</td>
+  <td>2,00,11,862</td>
+  <td></td>
+  <td>20,011.86</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+</table>
+<br>
+<p>d. The details of shareholder holding more than 5% shares as at 31st March ,2019 and 31st March,2018:</p>
+<br>
+
+<table>
+<tr>
+  <th rowspan="2">Name of shareholder</th>
+  <th colspan="3">March 31, 2019</th>
+  <th colspan="3">March 31, 2018</th>
+</tr>
+
+<tr>
+  <th>No.of Shares</th>
+  <th></th>
+  <th>% Shares</th>
+  <th>No.of Shares</th>
+  <th></th>
+  <th>% Shares</th>
+</tr>
+
+<tr>
+  <th>Equity shares of Rs 100 each fully paid up</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>Holding company</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>-Noble Resources International Pte Ltd</td>
+  <td>14,99,999</td>
+  <td></td>
+  <td>99.99</td>
+  <td>2,00,11,862</td>
+  <td></td>
+  <td>99.99</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+</table>
+
+        </div>
+
+
+
+
+
+</div>
+
+
+<div id="Payment_History" class="tabcontent">
+  <div class="container-fluid">
+
+<table>
+  <tr>
+    <th rowspan="2">Description</th>
+    <th colspan="4">GROSS BLOCK</th>
+    <th colspan="4">DEPRECIATION/ AMORTISATION</th>
+    <th colspan="2">NET BLOCK</th>
+  </tr>
+  <tr>
+    <td>As at 01.04.2018</td>
+    <td>Additions during the year</td>
+    <td>Deductions/ Adjustments during the year</td>
+    <td>As at 31.03.2019</td>
+    <td>Upto 31.03.2018</td>
+    <td>For the year</td>
+    <td>Deductions/ Adjustments during the year</td>
+    <td>Upto 31.03.2019</td>
+    <td>As at 31.03.2019</td>
+    <td>As at 31.03.2018</td>
+  </tr>
+  <tr>
+    <th>Tangible assets</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>Building</td>
+    <td>2085.96</td>
+    <td>-</td>
+    <td>-</td>
+    <td>2,085.97</td>
+    <td>678.86</td>
+    <td>50.17</td>
+    <td></td>
+    <td>729.03</td>
+    <td>1,356.94</td>
+    <td>1,407.10</td>
+  </tr>
+    <tr>
+    <td>Furniture and Fixtures</td>
+    <td>151.72</td>
+    <td></td>
+    <td></td>
+    <td>151.72</td>
+    <td>104.99</td>
+    <td>11.79</td>
+    <td></td>
+    <td>116.78</td>
+    <td>34.95</td>
+    <td>46.73</td>
+  </tr>
+    <tr>
+    <td>Vehicles</td>
+    <td>21.66</td>
+    <td></td>
+    <td>5.88</td>
+    <td>15.78</td>
+    <td>20.42</td>
+    <td>0.10</td>
+    <td>5.54</td>
+    <td>14.98</td>
+    <td>0.79</td>
+    <td>1.24</td>
+  </tr>
+    <tr>
+    <td>Office Equipments</td>
+    <td>47.17</td>
+    <td>1.07</td>
+    <td>0.48</td>
+    <td>47.77</td>
+    <td>41.54</td>
+    <td>1.83</td>
+    <td>0.34</td>
+    <td>43.03</td>
+    <td>4.75</td>
+    <td>5.63</td>
+
+  </tr>
+    <tr>
+    <td>Computers</td>
+    <td>150.63</td>
+    <td>1.75</td>
+    <td></td>
+    <td>152.39</td>
+    <td>142.51</td>
+    <td>1.15</td>
+    <td></td>
+    <td>143.66</td>
+    <td>8.73</td>
+    <td>8.13</td>
+  </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>Total</td>
+    <td>2,45715</td>
+    <td>2.82</td>
+    <td>6.36</td>
+    <td>2,453.63</td>
+    <td>988.31</td>
+    <td>65.05</td>
+    <td>5.88</td>
+    <td>1,047.48</td>
+    <td>1,406.16</td>
+    <td>1,468.83</td>
+  </tr>
+    <tr>
+    <th>Intangible assets</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>Software</td>
+    <td>17.23</td>
+    <td>-</td>
+    <td></td>
+    <td>17.23</td>
+    <td>17.23</td>
+    <td>-</td>
+    <td>-</td>
+    <td>17.23</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>Total</td>
+    <td>17.23</td>
+    <td>-</td>
+    <td>-</td>
+    <td>17.23</td>
+    <td>17.23</td>
+    <td>-</td>
+    <td>-</td>
+    <td>17.23</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <th>Grand Total</th>
+    <th>2,474.38</th>
+    <th>2.82</th>
+    <th>6.36</th>
+    <th>2,470.86</th>
+    <th>1,005.54</th>
+    <th>65.05</th>
+    <th>5.88</th>
+    <th>1,064.71</th>
+    <th>1,406.16</th>
+    <th>1,468.83</th>
+  </tr>
+    <tr>
+    <td>Previous Year</td>
+    <td>2,474.38</td>
+    <td>7.83</td>
+    <td>-</td>
+    <td>2,483.30</td>
+    <td>936.82</td>
+    <td>89.85</td>
+    <td>-</td>
+    <td>936.82</td>
+    <td>1,468.83</td>
+    <td>1,628.50</td>
+  </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+        </div>
+</div>
+
+        <!-- Begin Page Content -->
+<div id="Selected_Subcategories" class="tabcontent">
+  <div class="container-fluid">
+
+          <!-- Page Heading -->
+
+<table>
+<tr>
+<th></th>
+<th></th>
+<th>As at March31, 2019 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+<th>As at March31, 2018 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+</tr>
+
+<tr>
+  <th>4</th>
+  <th>RESERVES AND SURPLUS</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <th>General reserve</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Opening balance</td>
+  <td>15.00</td>
+  <td>15.00</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Closing Balance (A)</td>
+  <td>15.00</td>
+  <td>15.00</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Surplus / (Deficit) in the Statement of  Profit & Loss</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Opening balance</td>
+  <td>(3,304.22)</td>
+  <td>(3,516.91)</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Add: Net Profit after tax transferred from statement of profit & loss</td>
+  <td>349.90</td>
+  <td>212.69</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Amount available for appropriation</td>
+  <td>(2,954.32)</td>
+  <td>(3,304.22)</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Less: Capital Reduction</td>
+  <td>(5,583.18)</td>
+  <td>-</td>
+</tr>
+
+<tr>
+  <td></td>
+  <th>closing balance (B)</th>
+  <td>2,628.86</td>
+  <td>(3,304.22)</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <th>Total Reserve & Surplus</th>
+  <td>2,643.86</td>
+  <td>(3,289.22)</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>5</td>
+  <th>LONG TERM PROVISIONS</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Provision for Employees' Benefits</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>-Gratuity</td>
+  <td>31.17</td>
+  <td>31.17</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>-Leave Encashment</td>
+  <td>12.66</td>
+  <td>12.66</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Provision for Taxation  (net of advance income tax)</td>
+  <td>202.03</td>
+  <td>157.74</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td></td>
+  <td>245.86</td>
+  <td>201.57</td>
+</tr>
+
+<tr>
+  <th>6</th>
+  <th>OTHER CURRENT LIABILITIES</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Statutory dues</td>
+  <td>31.10</td>
+  <td>31.23</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Payable to employees</td>
+  <td>0.37</td>
+  <td>0.35</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Payable to Director</td>
+  <td>0.61</td>
+  <td>-</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Other payables</td>
+  <td>13,153.99</td>
+  <td>50.07</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td></td>
+  <td>13,186.08</td>
+  <td>81.66</td>
+</tr>
+
+<tr>
+  <th>7</th>
+  <th>SHORT TERM PROVISIONS</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <th>Provision for Employees' Benefits</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>-Gratuity</td>
+  <td>11.32</td>
+  <td>11.32</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>-Leave Encashment</td>
+  <td>2.28</td>
+  <td>2.28</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>Provision for contingencies in respect of possible Value Added Tax (VAT) claims</td>
+  <td>461.58</td>
+  <td>461.58</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>475.18</td>
+  <td>475.18</td>
+</tr>
+</table>
+
+
+<!--<h3>NOBLE RESOURCES AND TRADING INDIA PRIVATE LIMITED-->
+<!--<br> NOTES ANNEXED TO AND FORMING PART OF THE FINANCIAL STATEMENTS-->
+<!--<br>FOR THE YEAR ENDED MARCH 31, 2019-->
+<!--</h3>-->
+
+<table>
+<tr>
+<th></th>
+<th></th>
+<th>As at March31, 2019 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+<th>As at March31, 2018 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>9</th>
+  <th>DEFERRED TAX ASSET (NET)</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Deferred Tax Asset/(Liability)</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Depreciation and Amortization</td>
+  <td>(138.24)</td>
+  <td>(155.51)</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Provision for retirement benefits</td>
+  <td>22.66</td>
+  <td>22.66</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Provision for doubtful debts/advances</td>
+  <td>178.82</td>
+  <td>381.44</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>'Other provisions</td>
+  <td>146.54</td>
+  <td>146.54</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>209.78</td>
+  <td>395.13</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>10</td>
+  <td>LONG TERM LOANS AND ADVANCES</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>( Secured )</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>'Loan Receivable</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>'- considered good*</td>
+  <td>-</td>
+  <td>-.00</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>- considered doubtful</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>(Unsecured)</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Security deposits*</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>- considered good</td>
+  <td>117.46</td>
+  <td>117.46</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>- considered doubtful</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>117.46</td>
+  <td>117.46</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Less: Provision for doubtful deposits</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>117.46</td>
+  <td>117.46</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Other Loans and Advances</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>'(considered good)</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>'- Advances recoverable in cash or in kind or for value to be received</td>
+  <td>188.55</td>
+  <td>80.69</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>'-Advance income tax (net of provision for income tax)</td>
+  <td>787.13</td>
+  <td>787.13</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Other Loans and Advances</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>'(considered doubtful)</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>'-Advances recoverable in cash or in kind or for value to be received</td>
+  <td>43.17</td>
+  <td>43.17</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>1,018.84</td>
+  <td>910.98</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Less: Provision for doubtful advances</td>
+  <td>43.17</td>
+  <td>43.17</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>975.68</td>
+  <td>867.81</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <th>Total</th>
+  <td>1093.14</td>
+  <td>985.27</td>
+</tr>
+
+<tr>
+  <th>11</th>
+  <th>OTHER NON CURRENT ASSETS</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Non Current Bank Balances</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>-Deposits with original maturity of more than 12 months</td>
+  <td>0.08</td>
+  <td>0.08</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>0.08</td>
+  <td>0.08</td>
+</tr>
+
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>12</th>
+  <th>TRADE RECEIVABLES</th>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>(Unsecured)</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Outstanding for a period exceeding six months from the due date</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>-Considered Good</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>-Considered Doubtful</td>
+  <td>(0.00)</td>
+  <td>(0.00)</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Other Debts</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>-Considered Good</td>
+  <td>3,224.88</td>
+  <td>3,125.93</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>-Considered Doubtful</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>3,224.88</td>
+  <td>3,125.94</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Less: Provision for doubtful debts</td>
+  <td>(0.00)</td>
+  <td>(0.00)</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>3,224.88</td>
+  <td>3,125.93</td>
+</tr>
+
+</table>
+
+<!--<h3>NOBLE RESOURCES AND TRADING INDIA PRIVATE LIMITED-->
+<!--<br> NOTES ANNEXED TO AND FORMING PART OF THE FINANCIAL STATEMENTS-->
+<!--<br>FOR THE YEAR ENDED MARCH 31, 2019-->
+<!--</h3>-->
+
+<table>
+<tr>
+<th></th>
+<th></th>
+<th>As at March31, 2019 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+<th>As at March31, 2018 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+</tr>
+
+<tr>
+  <th>13</th>
+  <th>CASH AND BANK BALANCES</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Cash and Cash Equivalents</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Balance with banks</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>-In current accounts</td>
+  <td>10,619.57</td>
+  <td>6,990.01</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>-In deposits  with original maturity of less than 3 months</td>
+  <td>1,212.00</td>
+  <td>1,212.00</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Cash on hand</td>
+  <td>0.00</td>
+  <td>0.01</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>(* No cash was deposited during demonitisation period)</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>11,831.57</td>
+  <td>8,202.01</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <th>Other Bank Balances</th>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Deposits with maturity of more than 3 months but less than 12 months</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Deposits with maturity of more than 12 months</td>
+  <td>0.08</td>
+  <td>0.08</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>(0.08)</td>
+  <td>(0.08)</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Amount disclosed under Non-Current Assets (Note 11)</td>
+  <td>(0.08)</td>
+  <td>(0.08)</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>11,831.57</td>
+  <td>8,202.01</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>14</th>
+  <th>SHORT TERM LOANS AND ADVANCES</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>(Unsecured)</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Security deposits</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>- considered good</td>
+  <td>0.72</td>
+  <td>0.72</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>- considered doubtful</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>0.72</td>
+  <td>0.72</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Less: Provision for doubtful deposits</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>0.72</td>
+  <td>0.72</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Other Loans and Advances</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>'(considered good)</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>'-Advances recoverable in cash or in kind or for value to be received</td>
+  <td>68.11</td>
+  <td>3,267.97</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>*(includes loan to Atibir Industries Company Ltd of Rs. 32 Crore </td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>which is secured by the Gurantee of BIR Steel Pvt Ltd)</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>'-Prepaid expenses</td>
+  <td>5.18</td>
+  <td>7.10</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Other Loans and Advances</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>(considered doubtful)</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>'-Advances recoverable in cash or in kind or for value to be received</td>
+  <td>0.00</td>
+  <td>735.40</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>7.29</td>
+  <td>4,010.47</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td>Less: Provision for doubtful advances</td>
+  <td>0.00</td>
+  <td>735.40</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>73.29</td>
+  <td>3,275.07</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <th>Total</th>
+  <td>74.01</td>
+  <td>3,275.79</td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>15</th>
+  <th>OTHER CURRENT ASSETS</th>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Accrued Income</td>
+  <td>26.01</td>
+  <td>28.00</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>26.01</td>
+  <td>28.00</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+</table>
+
+
+        </div>
+
+</div>
+
+
+        <div id="plnotes" class="tabcontent">
+  <div class="container-fluid">
+
+          <!-- Page Heading -->
+
+
+<table>
+<tr>
+<th></th>
+<th></th>
+<th>As at March31, 2019 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+<th></th>
+<th>As at March31, 2018 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+</tr>
+
+<tr>
+  <th>16</th>
+  <th>REVENUE FROM OPERATIONS</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>Sale of products</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>Traded goods</td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Sale of services</td>
+  <td>1,429.87</td>
+  <td></td>
+  <td>1,483.07</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td>1,429.87</td>
+  <td></td>
+  <td>1,483.07</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>Details of product sold</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>Traded goods</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>Coal</td>
+  <td></td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <th>Details of services rendered</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>Commission and Business support services</td>
+  <td>1,429.87</td>
+  <td></td>
+  <td>1,483.07</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td>1,429.87</td>
+  <td></td>
+  <td>1,483.07</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>17</th>
+  <th>OTHER INCOME</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Interest received</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>-from banks</td>
+  <td>81.61</td>
+  <td></td>
+  <td>71.02</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>-from others*</td>
+  <td>132.56</td>
+  <td></td>
+  <td>331.98</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Other Income</td>
+  <td>736.00</td>
+  <td></td>
+  <td>1,233.13</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Profit on sale of Assets</td>
+  <td>0.86</td>
+  <td></td>
+  <td>1.08</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>951.09</td>
+  <td></td>
+  <td>1,637.22</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>18</th>
+  <th>Foreign exchange Fluctuation (net)</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Foreign exchange Fluctuation (net)</td>
+  <td>157.65</td>
+  <td></td>
+  <td>26.36</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>157.65</td>
+  <td></td>
+  <td>26.36</td>
+</tr>
+</table><br>
+<!--<h3>NOBLE RESOURCES AND TRADING INDIA PRIVATE LIMITED-->
+<!--<br> NOTES ANNEXED TO AND FORMING PART OF THE FINANCIAL STATEMENTS-->
+<!--<br>FOR THE YEAR ENDED MARCH 31, 2019-->
+<!--</h3>-->
+
+<table>
+<tr>
+<th></th>
+<th></th>
+<th>As at March31, 2019 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+<th></th>
+<th>As at March31, 2018 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>19</th>
+  <th>PURCHASES  OF STOCK-IN-TRADE</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <th>Details of Purchases of traded goods:</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Coal</td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>20</th>
+  <th>EMPLOYEE BENEFITS EXPENSES</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Salary and wages</td>
+  <td>985.74</td>
+  <td></td>
+  <td>910.00</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Contribution to Provident Fund</td>
+  <td>18.90</td>
+  <td></td>
+  <td>18.41</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Staff welfare expenses</td>
+  <td>5.29</td>
+  <td></td>
+  <td>5.66</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Staff Recruitment & Training</td>
+  <td>13.67</td>
+  <td></td>
+  <td>9.46</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>1,023.61</td>
+  <td></td>
+  <td>943.53</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+</table>
+<!--<h3>NOBLE RESOURCES AND TRADING INDIA PRIVATE LIMITED-->
+<!--<br> NOTES ANNEXED TO AND FORMING PART OF THE FINANCIAL STATEMENTS-->
+<!--<br>FOR THE YEAR ENDED MARCH 31, 2019-->
+<!--</h3>-->
+
+<table>
+<tr>
+<th></th>
+<th></th>
+<th>As at March31, 2019 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+<th></th>
+<th>As at March31, 2018 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+</tr>
+<tr>
+  <th>21</th>
+  <th>OTHER EXPENSES</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+    {% for items in expense_list %}
+         <tr>
+
+ <td>&nbsp;</td>
+  <td>{{items.Tally_Mapping}}</td>
+  <td>{{items.amt}}</td>
+  <td></td>
+  <td>0</td>
+  </tr>
+         {% endfor %}
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Electricity & water charges</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Communication costs</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Rent</td>-->
+  <!--<td>{{rent}}</td>-->
+  <!--<td></td>-->
+  <!--<td>198.50</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Travelling and conveyance</td>-->
+  <!--<td>{{list}}</td>-->
+  <!--<td></td>-->
+  <!--<td>58.27</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Rates and taxes</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Insurance</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Repairs and maintenance</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Vehicle running & maintenance</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Legal and professional fees</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Payment to the auditors*</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Printing and stationery</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Membership and subscriptions</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Business Promotion expense</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Loss/(Profit) on sale of fixed assets (net)</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Provision for dilapidation of fixed assets</td>-->
+  <!--<td>-</td>-->
+  <!--<td></td>-->
+  <!--<td>-</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Provision for bad & doubtful debts and advances</td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Debit Balances/Bad debts written off (net)</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Donation Other</td>-->
+  <!--<td>-</td>-->
+  <!--<td></td>-->
+  <!--<td>-</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Donation CSR</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>Miscellaneous expenses</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>*Payments to the auditors for</td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+  <!--<td></td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>'-statutory and Internal Financial Control Audit Fees</td>-->
+  <!--<td>0</td>-->
+  <!--<td></td>-->
+  <!--<td>0</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>-tax audit fees</td>-->
+  <!--<td>-</td>-->
+  <!--<td></td>-->
+  <!--<td>-</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>-transfer pricing fees</td>-->
+  <!--<td>-</td>-->
+  <!--<td></td>-->
+  <!--<td>-</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>-consultancy fees for legal matters</td>-->
+  <!--<td>-</td>-->
+  <!--<td></td>-->
+  <!--<td>-</td>-->
+<!--</tr>-->
+<!--<tr>-->
+  <!--<td>&nbsp;</td>-->
+  <!--<td>-certification fees</td>-->
+  <!--<td>-</td>-->
+  <!--<td></td>-->
+  <!--<td>-</td>-->
+<!--</tr>-->
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td><b>TOTAL</b></td>
+  <td>{{total_Expense}}</td>
+  <td></td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+  <br>
+  <br>
+  <br>
+
+  {% for items in list1 %}
+  <tr>
+    <td><b>{{forloop.counter}}</b></td>
+  {% for it in items %}
+
+{% if forloop.counter == 1 %}
+
+             <td><b>{{it.Notes_Mapping}}</b></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+   <tr>
+           <td>&nbsp;</td>
+      <td>{{it.Tally_Mapping}}</td>
+  <td>{{it.amt}}</td>
+  <td></td>
+  <td>0</td>
+  </tr>
+ {% else %}
+  <tr>
+           <td>&nbsp;</td>
+      <td>{{it.Tally_Mapping}}</td>
+  <td>{{it.amt}}</td>
+  <td></td>
+  <td>0</td>
+  </tr>
+ {% endif %}
+
+         {% endfor %}
+  <tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+    <tr>
+  <td>&nbsp;</td>
+  <td><b>Total</b></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+    <tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+         {% endfor %}
+
+
+
+
+<tr>
+  <th>22</th>
+  <th>Finance Cost</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Interest on income tax</td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Other borrowing costs (including bank charges)</td>
+  <td>0</td>
+  <td></td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Exchange differences arising from foreign currency borrowings to the extent regarded as an adjustment to borrowing cost</td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>0</td>
+  <td></td>
+  <td>0</td>
+</tr>
+</table>
+<!--<h3>NOBLE RESOURCES AND TRADING INDIA PRIVATE LIMITED-->
+<!--<br> NOTES ANNEXED TO AND FORMING PART OF THE FINANCIAL STATEMENTS-->
+<!--<br>FOR THE YEAR ENDED MARCH 31, 2019-->
+<!--</h3>-->
+<table>
+<tr>
+<th></th>
+<th></th>
+<th>As at March31, 2019 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+<th></th>
+<th>As at March31, 2018 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+</tr>
+<tr>
+  <th>23</th>
+  <th>PRIOR PERIOD ITEMS</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <th>PRIOR PERIOD INCOME</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <th>PRIOR PERIOD EXPENSES</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Others</td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>24</th>
+  <th>EARNING PER EQUITY SHARE (EPS)</th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Profit for the year</td>
+  <td>3,49,89,881.50</td>
+  <td></td>
+  <td>2,12,68,849.37</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Weighted average number of equity shares outstanding </td>
+  <td>15,00,000</td>
+  <td></td>
+  <td>2,00,11,872</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>Nominal value per equity share (in Rupees)</td>
+  <td>100</td>
+  <td></td>
+  <td>100</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <th>Earning per equity share- Basic and diluted ( In Rupees)</th>
+  <td>23.33</td>
+  <td></td>
+  <td>1.06</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+</table>
+
+
+        </div>
+
+</div>
+
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" align="center">Business Profile Form Errors!!!</h5>
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" align="center">
+				<strong style="color:red;">{{bp.registered_mobile.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.company_name.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.address.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.city.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.district.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.state.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.GSTIN.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{bp.mobile1.errors | striptags}} </strong><br>
+				<strong style="color:red;">{{form.zip_code.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.company_email.errors| striptags}}</strong><br>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+</div>
+
+{% if errors %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#exampleModal").modal("show");
+		});
+	</script>
+{% endif %}
+  <!-- End of Page Wrapper -->
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{% static 'js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
+</body>
+
+</html>

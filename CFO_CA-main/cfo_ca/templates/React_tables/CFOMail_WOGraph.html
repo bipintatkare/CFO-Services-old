@@ -1,0 +1,126 @@
+ <!doctype html>
+<html>
+  <head>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container" id='container' >
+
+<div id="wrapper">
+<h3>Dear Owner,<br>here is your CRUCIAL NUMBERS Report by CFO Services</h3>
+<center>
+  <div class="container" style="background-color: #fff;">
+    <br>
+    <h2>Crucial Numbers As On Date - {{for_date}} - {{for_company}}</h2>
+    <br>
+
+    <table style="border-collapse: collapse; width: 100%;" class="table table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" colspan="4" style="padding-top: 12px; padding-bottom: 12px; background-color: #343a40; color: white; text-align: center;"><center>Sales</center></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  style="background-color: #f2f2f2; text-align: center;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="2"><center>For The Day</center></th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Monthly Cumulative  </center></th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Yearly Cumulative </center></th>
+              </tr>
+              <tr style="background-color: #fff;">
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="2"><center> {{sales_actual_till_date}} </center></td>
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> {{sales_actual_monthly}} </center> </td>
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> {{sales_actual_yearly}} </center> </td>
+
+              </tr>
+
+
+             </tbody>
+      </table>
+
+    <br>
+
+      <table style="border-collapse: collapse; width: 100%;" class="table table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" colspan="3" style="padding-top: 12px; padding-bottom: 12px; background-color: #343a40; color: white; text-align: center;"><center>Receipts</center></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #f2f2f2; text-align: center;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Date</center></th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Customer Name   </center></th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Amount  </center></th>
+              </tr>
+              {% if obj_list_cond %}
+               {% for item in obj_list %}
+              <tr style="background-color: #fff;">
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> {{item.voucher_id_date}}  </center></td>
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> {{item.ledger_name_temp}} </center> </td>
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> {{item.amt}} </center> </td>
+
+              </tr>
+            {% endfor %}
+{% else %}
+             <tr>
+                <th scope="col" colspan="3" style="padding-top: 12px; padding-bottom: 12px; text-align: center;"><center>No Receipts For Today</center></th>
+              </tr>
+{% endif %}
+
+
+             </tbody>
+      </table>
+
+
+    <br>
+
+      <table  style="border-collapse: collapse; width: 100%;" class="table table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" colspan="3" style="padding-top: 12px; padding-bottom: 12px; background-color: #343a40; color: white; text-align: center;"><center>Bank Balance</center></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #f2f2f2; text-align: center;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Name of the Bank</center></th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Amount</center></th>
+              </tr>
+              {% for item in banks_details %}
+              <tr style="background-color: #fff; text-align: center;">
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> {{item.bank_name}}   </center> </td>
+                  {% if item.cr_amt == 0.00 %}
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> {{item.dr_amt}} </center> </td>
+                  {% else %}
+                                    <td style="border: 1px solid #ddd; padding: 8px; text-align: center;color:red;" scope="row" colspan="1"><center> -{{item.cr_amt}} </center> </td>
+{% endif %}
+              </tr>
+            {% endfor %}
+
+             </tbody>
+      </table>
+
+    <br>
+    <br>
+<h5>Last Sync- {{last_sync}}</h5>
+
+
+
+
+  </div>
+</center>
+   <div style="float: right;">
+
+<h4>POWERED BY </h4>
+    <img height="70" width="170" src="http://65.2.146.150/static/media/logo-light.bbfe1454.png"/>
+</div>
+</div>
+
+
+
+
+
+    </div>
+
+
+  </body>
+</html>

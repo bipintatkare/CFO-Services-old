@@ -1,0 +1,463 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>ATMS</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/dashboard/sb-admin-2.min.css' %}" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <style>
+input[type=text], select {
+    padding: 5px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 60px 20px 100px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+@media screen and (min-width: 600px) {
+
+input[type=text], select {
+   width: 60%;
+}
+
+
+
+input[type=submit] {
+  width: 60%;
+
+}
+
+}
+
+
+
+
+
+</style>
+
+
+
+</head>
+
+<body id="page-top">
+<style type="text/css">
+
+	/* Full-width input fields */
+.qfinp {
+  width: 60%;
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  display: inline-block;
+
+border-radius: 10px;
+
+overflow: hidden;
+
+}
+.button {
+  background-color: #a0e418; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.lname {
+width: 35%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+border:3px solid #696969;
+border-radius: 10px;
+
+}
+
+.fname {
+width: 35%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+border:3px solid #696969;
+border-radius: 10px;
+
+}
+
+.drop {
+	width: 58%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+border:3px solid #696969;
+border-radius: 10px;
+}
+
+
+.qfinp:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+
+@media screen and (min-width: 600px) {
+
+.cont {
+	width:800px;
+}
+
+
+}
+@media screen and (max-width: 600px) {
+  .qfinp {
+    width: 100%;
+    margin-top: 0;
+  }
+
+
+
+
+  .lname {
+ width: 100%;
+    margin-top: 0;
+
+}
+
+.fname {
+ width: 100%;
+    margin-top: 0;
+
+
+
+}
+
+.drop {
+width: 100%;
+    margin-top: 0;
+}
+
+
+
+
+</style>
+        <style type="text/css">
+
+  * {
+  font-family: 'Montserrat';
+
+  }
+
+  table {
+  border-collapse: collapse;
+  width: 90%;
+  font-size: 13px;
+  border-color: black;
+  color: black;
+
+
+}
+
+
+th {
+
+  font-size: 13px;
+    border: 1px solid black;
+    text-align: center;
+
+}
+
+td {
+  border: 1px solid black;
+
+text-align: left;
+
+}
+
+.alignL {
+  text-align: left; padding-left: 15px;
+  color: black;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.alignR {
+  text-align: right; padding-right: 10px;
+}
+
+
+</style>
+       <style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+</style>
+<style>
+
+* {
+color:;
+}
+  .faicons {
+  font-size: 18px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #5a5c69;
+  }
+
+  .icon-border {
+  border: 1px solid #d1d3e2;
+  border-radius: 5px 1px 1px 5px;
+  border-right: none;
+
+
+  }
+
+  .control-label {
+  color: black;
+
+  }
+
+</style>
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+	{% include 'base_templates/sidebar.html' %}
+
+    <!-- Sidebar -->
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content" style="background-color: white;">
+
+
+<style type="text/css">
+
+  * {
+  font-family: 'Montserrat';
+
+  }
+
+  table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  border: 1px solid black;
+
+
+}
+
+
+th {
+
+  padding: 8px;
+  font-size: 13px;
+  color: black;
+    border: 1px solid black;
+
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.alignL {
+  text-align: left; padding-left: 15px;
+  color: black;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.alignR {
+  text-align: right; padding-right: 10px;
+}
+
+
+
+.float{
+	position:fixed;
+	width:100px;
+	height:35px;
+	bottom:10px;
+	right:45%;
+	background-color:#4e73df;
+	color:#FFF;
+	border-radius:10px;
+	text-align:center;
+	font-size: 20px;
+	<!--box-shadow: 2px 2px 3px black;-->
+
+}
+
+.my-float{
+	margin-top:22px;
+}
+
+</style>
+        <!-- Topbar -->
+	{% include 'base_templates/navbar_for_dashboard.html' %}
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+         <center>  <h1 style="color: black; font-size: 25px;">Profit & Loss</h1>  </center>
+
+
+          <div  style="padding:20px;">
+<!-- partial:index.partial.html -->
+<div class="responsive-table row">
+  <table id="sortable">
+    <tr class="ui-state-default">
+      <th>Drag Row</th>
+      <th>Id</th>
+      <th>Profit</th>
+      <th>Loss</th>
+    </tr>
+
+
+
+    {% for it,value,item in list_of_final_t %}
+
+
+
+
+                  <tr>
+                    <td><i class="fa fa-bars"></i></td>
+                      <td data-id="{{forloop.counter}}" style="width: 10%;font-weight: 900;">{{forloop.counter}}</td>
+                      <td data-role="test" id="category-tabs" style="width:60%; font-weight: 900;"> {{it}}</td>
+                      <td style="font-weight: 900;">{{ value}}</td>
+                  </tr>
+
+                  {% for name in item %}
+
+              <tr>
+                <td><i class="fa fa-bars"></i></td>
+                  <td data-id="{{forloop.counter}}" style="width:10%; padding-left: 25px;">{{forloop.counter}}</td>
+                  <td data-role="test" style="width: 60%; padding-left: 35px;">{{name.description}}</td>
+                  <td style=" padding-left: 25px;">{{ name.final}}</td>
+              </tr>
+
+                  {% endfor %}
+   {% endfor %}
+
+
+
+</table>
+</div>
+
+          </div></div></div></div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<!-- <script  src="./script.js"></script> -->
+
+
+<script type="text/javascript">
+  $(function() {
+    $("#sortable tbody").sortable({
+      cursor: "move",
+      placeholder: "sortable-placeholder",
+      helper: function(e, tr)
+      {
+        var $originals = tr.children();
+        var $helper = tr.clone();
+        $helper.children().each(function(index)
+
+        {
+
+        $(this).width($originals.eq(index).width());
+
+        });
+
+        return $helper;
+
+      }
+
+    }).disableSelection();
+
+  });
+</script>
+</body>
+</html>

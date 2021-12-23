@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+
+<head>
+	<title>s</title>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<style>
+table {
+	font-family: 'Montserrat';
+  border-collapse: collapse;
+  width: 90%;
+  text-align: center;
+  font-size: 13px;
+
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.align {
+	text-align: left; padding-left: 15px;
+}
+
+</style>
+</head>
+<body>
+<center>
+<h3 style="font-family: 'Montserrat';"> <u>Liquidity Barometer Of Business</u></h3>
+<table style="width: 80%;">
+	<tr>
+		<th style="width: 70%; text-align: center;">  Perticulars </th>
+		<th style="text-align: center;">Amounts </th>
+	</tr>
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<td class="align">Inventory / Stock</td>
+		<td>{{opening_stock}}</td>
+
+	</tr>
+
+	<tr>
+		<td class="align"> Debtors / Accounts Receivable </td>
+		<td>{{sundry_debtors}}</td>
+	
+	</tr>
+
+	<tr>
+		<td class="align">Bank / Cash In Hand</td>
+		<td>{{bank_acc}}</td>
+	</tr>
+
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<th class="align">Total Current Assets (A)</th>
+				<th></th>
+
+	</tr>
+
+
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<td class="align">Taxes & Expenses Payable </td>
+		<td>{{taxes}}</td>
+	</tr>
+
+	<tr>
+		<td class="align">Creditors / Accounts Payable </td>
+		<td>{{SundryCreditors}}</td>
+	</tr>
+
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<th class="align">Total Current Liabilities (B)</th>
+				<th> </th>
+
+	</tr>
+
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<th class="align">Net Liquid Funds (A-B)</th>
+		<th></th>
+	</tr>
+
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<td class="align"> Less: Bank Overdraft Utilized</td>
+				<td></td>
+
+	</tr>
+
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<th class="align">Net Liquidity In Company</th>
+				<th></th>
+
+	</tr>
+	<tr>
+		<td> </td>
+		<td> </td>
+	</tr>
+
+</table>
+
+
+
+
+ </center>
+</body>
+</html>

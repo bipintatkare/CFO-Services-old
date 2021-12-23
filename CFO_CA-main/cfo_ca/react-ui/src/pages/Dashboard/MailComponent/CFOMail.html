@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+
+<script>
+window.onload = function () {
+
+
+
+
+//----------------  First Graph ------------------------
+
+
+var chartMain = new CanvasJS.Chart("chartContainerMain", {
+	animationEnabled: true,
+
+	axisY: {
+		titleFontColor: "#4F81BC",
+		lineColor: "#4F81BC",
+		labelFontColor: "#4F81BC",
+		tickColor: "#4F81BC"
+	},
+
+	toolTip: {
+		shared: true
+	},
+	legend: {
+		cursor:"pointer",
+		itemclick: toggleDataSeries
+	},
+			dataPointWidth: 50,
+
+	data: [{
+		type: "column",
+		name: "Proven Oil Reserves (bn)",
+		legendText: "Proven Oil Reserves",
+		showInLegend: true, 
+		dataPoints:[
+			{ label: "Saudi", y: 266.21 },
+			{ label: "Venezuela", y: 302.25 },
+			{ label: "Iran", y: 157.20 },
+			{ label: "Iraq", y: 148.77 },
+			{ label: "Kuwait", y: 101.50 },
+			{ label: "UAE", y: 97.8 }
+		]
+	},
+]
+});
+chartMain.render();
+
+function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else {
+		e.dataSeries.visible = true;
+	}
+	chartMain.render();
+}
+
+
+
+//----------------  Second Graph  ------------------------
+
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+
+	axisY: {
+		titleFontColor: "#4F81BC",
+		lineColor: "#4F81BC",
+		labelFontColor: "#4F81BC",
+		tickColor: "#4F81BC"
+	},
+	axisY2: {
+		titleFontColor: "#C0504E",
+		lineColor: "#C0504E",
+		labelFontColor: "#C0504E",
+		tickColor: "#C0504E"
+	},	
+	toolTip: {
+		shared: true
+	},
+	legend: {
+		cursor:"pointer",
+		itemclick: toggleDataSeries
+	},
+	dataPointWidth: 50,
+	data: [{
+		type: "column",
+		name: "Proven Oil Reserves (bn)",
+		legendText: "Proven Oil Reserves",
+		showInLegend: true, 
+		dataPoints:[
+			{ label: "Saudi", y: 266.21 },
+			{ label: "Venezuela", y: 302.25 },
+			{ label: "Iran", y: 157.20 },
+			{ label: "Iraq", y: 148.77 },
+			{ label: "Kuwait", y: 101.50 },
+			{ label: "UAE", y: 97.8 }
+		]
+	},
+	{
+		type: "column",	
+		name: "Oil Production (million/day)",
+		legendText: "Oil Production",
+		axisYType: "secondary",
+		showInLegend: true,
+		dataPoints:[
+			{ label: "Saudi", y: 10.46 },
+			{ label: "Venezuela", y: 2.27 },
+			{ label: "Iran", y: 3.99 },
+			{ label: "Iraq", y: 4.45 },
+			{ label: "Kuwait", y: 2.92 },
+			{ label: "UAE", y: 3.1 }
+		]
+	}]
+});
+chart.render();
+
+function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else {
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+
+
+}
+</script>
+
+
+<style>
+	body {
+	    font-family: 'Montserrat';
+	}
+	.container-main {
+		padding: 10px;
+	}
+
+
+	 tr:hover {background-color: #ddd;}
+
+
+</style>
+
+</head>
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+<script type="text/javascript">
+	(function(exports) {
+    function urlsToAbsolute(nodeList) {
+        if (!nodeList.length) {
+            return [];
+        }
+        var attrName = 'href';
+        if (nodeList[0].__proto__ === HTMLImageElement.prototype || nodeList[0].__proto__ === HTMLScriptElement.prototype) {
+            attrName = 'src';
+        }
+        nodeList = [].map.call(nodeList, function(el, i) {
+            var attr = el.getAttribute(attrName);
+            if (!attr) {
+                return;
+            }
+            var absURL = /^(https?|data):/i.test(attr);
+            if (absURL) {
+                return el;
+            } else {
+                return el;
+            }
+        });
+        return nodeList;
+    }
+
+    function screenshotPage() {
+        var wrapper = document.getElementById('wrapper');
+        html2canvas(wrapper, {
+            onrendered: function(canvas) {
+                canvas.toBlob(function(blob) {
+                    saveAs(blob, 'myScreenshot.png');
+                        var imgCanvas = document.createElement("canvas");
+                     var myScreenshot = imgCanvas.toDataURL("image/png");
+
+					try {
+					        localStorage.setItem("blob", myScreenshot);
+					        console.log("Storage Successfull: " );
+
+					    }
+					    catch (e) {
+					        console.log("Storage failed: " + e);
+					    }                    
+
+                });
+            }
+        });
+    }
+
+    function addOnPageLoad_() {
+        window.addEventListener('DOMContentLoaded', function(e) {
+            var scrollX = document.documentElement.dataset.scrollX || 0;
+            var scrollY = document.documentElement.dataset.scrollY || 0;
+            window.scrollTo(scrollX, scrollY);
+        });
+    }
+
+
+setTimeout(function generate(){ 
+	screenshotPage();
+}, 1000);
+
+
+setTimeout(function generate(){ 
+	window.close();
+}, 1200);
+
+
+
+
+// document.addEventListener('DOMContentLoaded', function generate() {
+//     screenshotPage();
+
+// }, false);
+    
+
+    exports.screenshotPage = screenshotPage;
+    exports.generate = generate;
+})(window);
+</script>
+<!-- <a class="btn btn-success" href="javascript:void(0);" onload="generate();">Generate Screenshot »</a> -->
+
+<div id="wrapper">
+ 
+
+
+
+<center>
+	<div class="container" style="background-color: #fff;">
+		<br>
+		<h1>Crucial Numbers</h1>
+		<br>
+
+		<table style="border-collapse: collapse; width: 100%;" class="table table table-bordered">
+	          <thead className="thead-dark">
+	            <tr>
+	              <th scope="col" colspan="4" style="padding-top: 12px; padding-bottom: 12px; background-color: #343a40; color: white; text-align: center;"><center>Sales</center></th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr  style="background-color: #f2f2f2; text-align: center;">
+	              <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="2"><center>For The Day</center></th>
+	              <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Monthly Cumulative	</center></th>
+	              <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Yearly Cumulative	</center></th>
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="2"><center> XYZ </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,966 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 44,25,364 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="2"><center> XYZ </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,966 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 44,25,364 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="2"><center> XYZ </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,966 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 44,25,364 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="2"><center> XYZ </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,966 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 44,25,364 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="2"><center> XYZ </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,966 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 44,25,364 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="2"><center> XYZ </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,966 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 44,25,364 </center> </td>
+
+	            </tr>
+
+	           </tbody>
+	    </table>
+
+		<br>
+
+	    <table style="border-collapse: collapse; width: 100%;" class="table table table-bordered">
+	          <thead className="thead-dark">
+	            <tr>
+	              <th scope="col" colspan="3" style="padding-top: 12px; padding-bottom: 12px; background-color: #343a40; color: white; text-align: center;"><center>Receipts</center></th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr style="background-color: #f2f2f2; text-align: center;">
+	              <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Date</center></th>
+	              <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Customer Name		</center></th>
+	              <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Amount	</center></th>
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 20/10/2020	 </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Vikas Pandey	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 20/10/2020	 </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Vikas Pandey	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 20/10/2020	 </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Vikas Pandey	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 20/10/2020	 </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Vikas Pandey	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 20/10/2020	 </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Vikas Pandey	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 20/10/2020	 </center></td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Vikas Pandey	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	           </tbody>
+	    </table>
+
+
+		<br>
+
+	    <table  style="border-collapse: collapse; width: 100%;" className="table table table-bordered">
+	          <thead className="thead-dark">
+	            <tr>
+	              <th scope="col" colspan="2" style="padding-top: 12px; padding-bottom: 12px; background-color: #343a40; color: white; text-align: center;"><center>Bank Balance</center></th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr style="background-color: #f2f2f2; text-align: center;">
+	              <th style="border: 1px solid #ddd; padding: 8px; text-align: center;"} scope="row" colspan="1"><center>Name of the Bank	</center></th>
+	              <th style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Amount 	</center></th>
+	            </tr>
+	            <tr style="background-color: #fff; text-align: center;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Jai Hind Bank	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff; text-align: center;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Jai Hind Bank	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff; text-align: center;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Jai Hind Bank	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff; text-align: center;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Jai Hind Bank	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	            <tr style="background-color: #fff; text-align: center;">
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> Jai Hind Bank	 </center> </td>
+	                <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1"><center> 2,45,550 </center> </td>
+
+	            </tr>
+	           </tbody>
+	    </table>
+
+		<br>
+		<br>
+
+<div class="row">
+	<div class="col-md-6">
+		
+		<div class="container">
+			<hr>
+			<br>
+			<h3> Sales This Month  </h3>
+			<div id="chartContainerMain" style="width: 100%;"></div>
+		</div>
+
+	</div>	
+	<div class="col-md-6">
+
+<div class="container">
+			<hr>
+			<br>
+			<h3> Monthly Sales & Collection  </h3>
+			<div id="chartContainer" style="width: 100%; "></div>
+		</div>
+	</div>	
+</div>
+
+		
+	<div style="height: 500px;"></div>
+		
+	
+	
+	</div>
+</center>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>CFO Services</title>
+
+   <!-- Custom fonts for this template-->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+
+  <style>
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+
+</head>
+
+<body id="page-top">
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+          {% include 'base_templates/sidebar.html' %}
+
+
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+                  {% include 'base_templates/navbar_for_dashboard.html' %}
+
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <style type="text/css">
+
+  * {
+  font-family: 'Montserrat';
+
+  }
+
+  table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  color: black;
+
+
+}
+/*tr:nth-child(even) {
+  background-color: #dddddd;
+}
+*/
+/*tr {
+  background-color: #E8E8E8;
+}
+*/
+
+th {
+
+  padding: 8px;
+
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+
+}
+
+.alignL {
+  text-align: left; padding-left: 15px;
+  color: black;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.alignR {
+  text-align: right; padding-right: 10px;
+}
+.align {
+  text-align: left; padding-left: 15px;
+}
+</style>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+
+        <!-- Page Heading --><DIV>
+             <center>  <h1 class="h3 mb-0 text-gray-800">Profit & Loss Account With Segmentation
+ <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="float: right;"> <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a></h1>
+ </center>
+
+          </DIV>
+          <br>
+
+<center>
+     <div class="col-xl-12 col-md-12 mb-12">
+              <div class="card shadow">
+                <div class="card-body" style="padding: 0px;">
+                  <div class="row no-gutters align-items-center">
+
+  <table>
+  <tr style="background-color: #b0b0b0; color: black; border-radius: 5px 5px 0px 0px; font-size: 13px; padding: 5px;">
+    <th> </th>
+    <th> Segment 1 </th>
+    <th> Segment 2 </th>
+    <th> Segment  3</th>
+    <th> Total</th>
+  </tr>
+  <tr>
+    <td class="alignL">Sales (A) </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx</td>
+
+  </tr>
+
+  <tr>
+    <td class="alignL">Sales </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx</td>
+
+  </tr>
+
+  <tr>
+    <td class="alignL">High Sea Sales </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx</td>
+
+  </tr>
+
+  <tr>
+    <td class="alignL">Service Sale </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx</td>
+  </tr>
+
+  <tr>
+    <td class="alignL">COGS (B)=(a+b-c)</td>
+    <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+     <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+
+  </tr>
+
+  <tr>
+    <td class="alignL">Opening Stock (a) </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <th class="alignR">xx</th>
+  </tr>
+
+  <tr>
+    <td class="alignL">+ Purchases (b) </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx</td>
+  </tr>
+
+  <tr>
+    <td class="alignL">- Closing Stock (c) </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx</td>
+  </tr>
+
+  <tr>
+    <td class="alignL">&nbsp;</td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+    <td class="alignR"></td>
+  </tr>
+
+  <tr>
+    <td class="alignL">GROSS Profits (C=A-B)</td>
+        <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+
+    <td class="alignR">xx</td>
+  </tr>
+
+  <tr>
+    <td class="alignL">GROSS G.P. (%)</td>
+       <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+
+  </tr>
+
+  <tr>
+    <td class="alignL">&nbsp;</td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+    <td class="alignR"></td>
+  </tr>
+
+  <tr>
+    <td class="alignL">Indirect Expenses (D)</td>
+       <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+
+  </tr>
+
+  <tr>
+    <td class="alignL">Salaries</td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx</td>
+  </tr>
+
+  <tr>
+    <td class="alignL">Admin Expenses</td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx</td>
+  </tr>
+
+  <tr>
+    <td class="alignL">Interest Expenses</td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx </td>
+    <td class="alignR">xx</td>
+  </tr>
+
+  <tr>
+    <td class="alignL">&nbsp;</td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+    <td class="alignR"></td>
+  </tr>
+
+  <tr>
+    <td class="alignL">&nbsp;</td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+  </tr>
+
+  <tr>
+    <td class="alignL">Net Profit (C-D)</td>
+       <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+
+  </tr>
+
+  <tr>
+    <td class="alignL">&nbsp;</td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+    <td class="alignR"> </td>
+  </tr>
+
+  <tr>
+    <td class="alignL">Net G.P. (%)</td>
+       <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+    <td class="alignR">xx</td>
+
+  </tr>
+
+
+</table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </center>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; CFO 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Bootstrap core JavaScript-->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{% static 'js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
+  <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+
+</body>
+
+</html>

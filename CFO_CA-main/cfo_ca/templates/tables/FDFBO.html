@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>CFO Services</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+
+  <style>
+
+
+    .dropbtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 15px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    .dropdown:hover .dropdown-content {display: block;}
+
+    .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  </style>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    {% include 'base_templates/sidebar.html' %}
+
+
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">20.0
+
+        <!-- Topbar -->
+        {% include 'base_templates/navbar_for_dashboard.html' %}
+
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <style type="text/css">
+
+          * {
+            font-family: 'Montserrat';
+
+          }
+
+          table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: black;
+
+
+          }
+/*tr:nth-child(even) {
+  background-color: #dddddd;
+}
+*/
+/*tr {
+  background-color: #E8E8E8;
+}
+*/
+
+th {
+
+  padding: 8px;
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+
+}
+
+.alignL {
+  text-align: left; padding-left: 15px;
+  color: black;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.alignR {
+  text-align: right; padding-right: 10px;
+}
+
+</style>
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading --><DIV>
+   <center>  <h1 class="h3 mb-0 text-gray-800">Financial Dashboard For Business Owners  <button data-toggle="modal" data-target="#myModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="float: right;"> <i class="fa fa-money fa-sm text-white-50"></i> Budget</button></h1>
+   </center>
+
+ </DIV>
+ <br>
+ <br>
+ <center>
+   <div class="col-xl-12 col-md-12 mb-12" style="margin-top: -15px;">
+    <div class="card shadow">
+      <div class="card-body" style="padding: 0px;">
+        <div class="row no-gutters align-items-center">
+
+         <table>
+          <tr>
+            <th colspan="4" style="background-color: #b0b0b0; color: black; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Sales </th>
+          </tr>
+          <tr>
+            <td colspan="2"> Current Month</td>
+            <td colspan="2">Till Date</td>
+          </tr>
+
+          <tr>
+            <td>Budget Figures</td>
+            <td>Actual Figures</td>
+            <td>Budget Figures</td>
+            <td>Actual Figures</td>
+          </tr>
+
+          <tr>
+            <td> </td>
+            <td> </td>
+            <td>{{budget.sales}} </td>
+            <td>{{sales_actual_till_date}} </td>
+
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<br>
+<div class="col-xl-12 col-md-12 mb-12" style="margin-top: -15px;">
+  <div class="card  shadow">
+    <div class="card-body" style="padding: 0px;">
+      <div class="row no-gutters align-items-center">
+       <table>
+        <tr>
+          <th colspan="8" style="background-color: #b0b0b0; color: black; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Gross Margin </th>
+        </tr>
+        <tr>
+          <td colspan="4"> Current Month</td>
+          <td colspan="4">Till Date</td>
+        </tr>
+
+        <tr>
+          <td>Budget %</td>
+          <td>Budget Figures</td>
+          <td>Actual %</td>
+          <td>Actual Figures</td>
+
+          <td>Budget %</td>
+          <td>Budget Figures</td>
+          <td>Actual %</td>
+          <td>Actual Figures</td>
+        </tr>
+
+        <tr>
+          <td> <br> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+
+          <td> <br> </td>
+          <td> </td>
+          <td>{{budget.gross}} </td>
+          <td>{{gross_margin}} </td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+<div class="col-xl-12 col-md-12 mb-12" style="margin-top: -16px;">
+  <div class="card  shadow">
+    <div class="card-body" style="padding: 0px;">
+      <div class="row no-gutters align-items-center">
+       <table>
+        <tr>
+          <th colspan="4" style="background-color: #b0b0b0; color: black; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Net Profit </th>
+        </tr>
+        <tr>
+          <td colspan="2"> Current Month</td>
+          <td colspan="2">Till Date</td>
+        </tr>
+
+        <tr>
+          <td>Budget Figures</td>
+          <td>Actual Figures</td>
+          <td>Budget Figures</td>
+          <td>Actual Figures</td>
+        </tr>
+
+        <tr>
+          <td> <br> </td>
+          <td> </td>
+          <td>{{budget.nett}}</td>
+          <td>{{net_profit}} </td>
+        </tr>
+      </table>
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+
+<div class="col-xl-12 col-md-12 mb-12" style="margin-top: -15px;">
+  <div class="card  shadow">
+    <div class="card-body" style="padding: 0px;">
+      <div class="row no-gutters align-items-center">
+
+       <table >
+        <tr>
+          <th colspan="2" style="background-color: #b0b0b0; color: black; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Sundry Debtors (Accounts Receivable)</th>
+        </tr>
+
+        <tr style="text-align: left;">
+          <td style="width: 50%; padding-left: 15px;">Outstanding</td>
+          <td>{{SundryDebtors}}</td>
+        </tr>
+
+        <tr>
+          <td style="text-align: left; padding-left: 15px;">Number Of Days</td>
+          <td>{{no_of_days}}</td>
+        </tr>
+
+        <tr>
+          <td style="text-align: left; padding-left: 15px;">More Than 3 Months</td>
+          <td> </td>
+        </tr>
+
+        <tr>
+          <td style="text-align: left; padding-left: 15px;">More Than 6 Months</td>
+          <td> </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row" style="width: 95;">
+
+
+  <br>    <div class="col-xl-6 col-md-6 mb-6" style="margin-top: 5px;">
+    <div class="card  shadow">
+      <div class="card-body" style="padding: 0px;">
+        <div class="row no-gutters align-items-center">
+
+         <table >
+          <tr>
+            <th colspan="2" style="background-color: #b0b0b0; color: black; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Sundry Creditors (Accounts Payable)</th>
+          </tr>
+
+          <tr style="text-align: left;">
+            <td style="width: 50%; padding-left: 15px;">Outstanding</td>
+            <td>{{SundryCreditors}}</td>
+          </tr>
+
+          <tr>
+            <td style="text-align: left; padding-left: 15px;">Number Of Days</td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td style="text-align: left; padding-left: 15px;">More Than 3 Months</td>
+            <td> </td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<br>
+
+<div class="col-xl-6 col-md-6 mb-6" style="margin-top: 5px;">
+ <div class="card  shadow">
+  <div class="card-body" style="padding: 0px;">
+    <div class="row no-gutters align-items-center">
+     <table >
+      <tr>
+        <th colspan="2" style="background-color: #b0b0b0; color: black; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Inventories</th>
+      </tr>
+
+      <tr style="text-align: left;">
+        <td style="width: 50%; padding-left: 15px;">Valuation</td>
+        <td>{{Inventories}}</td>
+
+        <tr>
+          <td style="text-align: left; padding-left: 15px;">Number Of Days</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td style="text-align: left; padding-left: 15px;">In Stock For More Than 90 Days</td>
+          <td> </td>
+        </tr>
+
+      </table>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<br>    <div class="col-xl-12 col-md-12 mb-12" style="margin-top: -16px;">
+  <div class="card shadow">
+    <div class="card-body" style="padding: 0px;">
+      <div class="row no-gutters align-items-center">
+       <table>
+        <tr>
+          <th colspan="6" style="background-color: #b0b0b0; color: black; border-radius: 5px 5px 0px 0px; font-size: 15px; padding: 5px;">Major Expenses</th>
+        </tr>
+
+        <tr>
+          <td rowspan="2" style="text-align: left; padding-left: 15px;">Perticulars</td>
+          <td colspan="2">Current Month</td>
+          <td colspan="2">Till Date</td>
+
+        </tr>
+
+        <tr>
+          <td>Budgeted Figures</td>
+          <td>Actual Figures</td>
+          <td>Budgeted Figures</td>
+          <td>Actual Figures</td>
+        </tr>
+
+        {% for item in major_expenses %}
+        <tr>
+          <td style="text-align: left; padding-left: 15px;">{{item.description}}</td>
+          <td><br></td>
+          <td><br></td>
+          <td>{{item.budget}}</td>
+          <td>{{item.final}}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+</center>
+
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright &copy; CFO 2019</span>
+    </div>
+  </div>
+</footer>
+<!-- End of Footer -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Details</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+      </div>
+      <div class="modal-body">
+
+       <form method="POST" >{% csrf_token %}
+        <div class="row" >
+          <label class="col-sm-4" style="margin:10px;" >Sales Budget:</label><input class="col-sm-6" style="margin:10px;" type="text" value="{{budget.sales}}" placeholder="Sales Budget"><br>
+          <label class="col-sm-4" style="margin:10px;" >Gross Target:</label><input class="col-sm-6" style="margin:10px;" type="text" value="{{budget.gross}}" placeholder="Gross Margin Target"><br>
+          <label class="col-sm-4" style="margin:10px;" >Net Profit Target:</label><input class="col-sm-6" style="margin:10px;" type="text" value="{{budget.nett}}" placeholder="Profit Target"><br>
+          {% for item in major_expenses %}
+          <label class="col-sm-4" style="margin:10px;" >{{item.description}}:</label><input class="col-sm-6" style="margin:10px;" type="text" value="{{item.budget}}" placeholder="E{{item.description}}"><br>
+          {% endfor %}
+        </div>
+
+        <center>
+         <button class="btn btn-primary" type="submit">Submit </button>
+       </center>
+
+     </form>
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{% static 'js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
+<script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+
+</body>
+
+</html>

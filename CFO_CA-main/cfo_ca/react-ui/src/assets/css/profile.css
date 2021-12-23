@@ -1,0 +1,17 @@
+.box{
+   max-width: 94rem;
+    margin-top:-5.8rem;
+    z-index:2;
+    
+}
+
+.icon{
+    margin-top:-55%;
+    z-index:8;
+}
+
+.main-div{
+    max-width: 100rem;
+    background-color: #2f364b;
+     z-index:-6;
+}

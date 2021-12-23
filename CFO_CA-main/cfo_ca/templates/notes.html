@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+		<title>Landscape Duniya CMS</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/dashboard/sb-admin-2.min.css' %}" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <style>
+input[type=text], select {
+    padding: 5px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 60px 20px 100px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+@media screen and (min-width: 600px) {
+
+input[type=text], select {
+   width: 60%;
+}
+
+
+
+input[type=submit] {
+  width: 60%;
+
+}
+
+}
+
+
+
+
+
+</style>
+
+</head>
+
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+	{% include 'base_templates/sidebar.html' %}
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+{% include 'base_templates/navbar_for_dashboard.html' %}        <!-- End of Topbar -->
+        <!-- End of Topbar -->
+
+
+
+
+<style type="text/css">
+
+	/* Full-width input fields */
+.qfinp {
+  width: 60%;
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  display: inline-block;
+
+border-radius: 10px;
+
+overflow: hidden;
+
+}
+.button {
+  background-color: #a0e418; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.lname {
+width: 35%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+border:3px solid #696969;
+border-radius: 10px;
+
+}
+
+.fname {
+width: 35%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+border:3px solid #696969;
+border-radius: 10px;
+
+}
+
+.drop {
+	width: 58%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+border:3px solid #696969;
+border-radius: 10px;
+}
+
+
+.qfinp:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+
+@media screen and (min-width: 600px) {
+
+.cont {
+	width:800px;
+}
+
+
+}
+@media screen and (max-width: 600px) {
+  .qfinp {
+    width: 100%;
+    margin-top: 0;
+  }
+
+
+
+
+  .lname {
+ width: 100%;
+    margin-top: 0;
+
+}
+
+.fname {
+ width: 100%;
+    margin-top: 0;
+
+
+
+}
+
+.drop {
+width: 100%;
+    margin-top: 0;
+}Expenses
+
+
+
+
+
+</style>
+        <style type="text/css">
+
+  * {
+  font-family: 'Montserrat';
+
+  }
+
+  table {
+  border-collapse: collapse;
+  width: 90%;
+  font-size: 13px;
+  border-color: black;
+  color: black;
+
+
+}
+
+
+th {
+
+  font-size: 13px;
+    border: 1px solid black;
+    text-align: left;
+
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.alignL {
+  text-align: left; padding-left: 15px;
+  color: black;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.alignR {
+  text-align: right; padding-right: 10px;
+}
+
+
+</style>
+       <style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 50%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+</style>
+
+
+
+
+<button class="tablink" onclick="openPage('Business_Profile', this, '#4e73df')" id="defaultOpen">Profit And Loss Acc</button>
+
+<button class="tablink" onclick="openPage('Payment_History', this, '#4e73df')" >Balance Sheet</button>
+
+
+
+<div id="Business_Profile" class="tabcontent">
+
+        <div class="container-fluid">
+
+<table>
+<tr>
+<th></th>
+<th>Notes</th>
+<th></th>
+<th>As at March31, 2019 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+<td></td>
+<th>As at March31, 2018 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Income</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Revenue from operations</td>
+  <td>16</td>
+  <td></td>
+  <td>1,429.87</td>
+  <td></td>
+  <td>1,483.07</td>
+</tr>
+<tr>
+  <td>Other income</td>
+  <td>17</td>
+  <td></td>
+  <td>951.09</td>
+  <td></td>
+  <td>1,637.22</td>
+</tr>
+<tr>
+  <td>Prior Period Income</td>
+  <td>23</td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Foreign Exchange Fluctuation (Net)</td>
+  <td>18</td>
+  <td></td>
+  <td>157.68</td>
+  <td></td>
+  <td>26.36</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <th>2,538.61</th>
+  <td></td>
+  <th>3,146.65</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Expenses</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Purchases of stock-in-trade</td>
+  <td>0</td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Employee Benefit Expenses</td>
+  <td>0</td>
+  <td></td>
+  <td>1,023.61</td>
+  <td></td>
+  <td>943.53</td>
+</tr>
+<tr>
+  <td>Operating Expenses</td>
+  <td>21</td>
+  <td></td>
+  <td>{{total}}</td>
+  <td></td>
+  <td>1,635.20</td>
+</tr>
+<tr>
+  <td>Depreciation & Amortisation Expenses</td>
+  <td>0</td>
+  <td></td>
+  <td>65.05</td>
+  <td></td>
+  <td>78.68</td>
+</tr>
+<tr>
+  <td>Finance Costs</td>
+  <td>0</td>
+  <td></td>
+  <td>0.15</td>
+  <td></td>
+  <td>0.37</td>
+</tr>
+<tr>
+  <td>Foreign Exchange Fluctuation (Net)</td>
+  <td>0</td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>Prior period Expense</td>
+  <td>0</td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>-</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <th>2,024.28</th>
+  <td></td>
+  <th>2,657.79</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Profit before tax</th>
+  <td></td>
+  <td></td>
+  <th>514.33</th>
+  <td></td>
+  <th>488.87</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Tax Expense</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Current Tax</td>
+  <td></td>
+  <td></td>
+  <td>(164.43)</td>
+  <td></td>
+  <td>-.00</td>
+</tr>
+<tr>
+  <td>Deferred tax </td>
+  <td></td>
+  <td></td>
+  <td>-</td>
+  <td></td>
+  <td>(276.18)</td>
+</tr>
+<tr>
+  <th>Profit for the year</th>
+  <td></td>
+  <td></td>
+  <th>349.90</th>
+  <td></td>
+  <th>212.69</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Earnings per Equity Share ( in Rupees)</th>
+  <td>24</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Basic</td>
+  <td></td>
+  <td></td>
+  <td>23.33</td>
+  <td></td>
+  <td>1.06</td>
+</tr>
+<tr>
+  <td>Diluted</td>
+  <td></td>
+  <td></td>
+  <td>23.33</td>
+  <td></td>
+  <td>1.06</td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Corporate information and significant accounting policies</th>
+  <td>1 & 2</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Other notes</th>
+  <td>26 to 33</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>The accompanying notes 1 to 33 are an integral part of the Financial Statements</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>"As per our Report of even date"</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>For Desai & Bhagtaney</th>
+  <th colspan="5">ON BEHALF OF THE BOARD OF DIRECTORS</th>
+</tr>
+<tr>
+  <td>Firm Registration Number: 115646W</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Chartered Accountants</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Shailesh Desai</th>
+  <th>PAUL JACKAMAN</th>
+  <td></td>
+  <th>GIRISH  KOULGI</th>
+  <td></td>
+  <th>ARCHANA PATIL</th>
+</tr>
+<tr>
+  <td>Partner</td>
+  <td>Director</td>
+  <td></td>
+  <td>Director</td>
+  <td></td>
+  <td>Company Secretary</td>
+</tr>
+<tr>
+  <td>Membership Number: 036935</td>
+  <td>DIN:07433224</td>
+  <td></td>
+  <td>DIN:07336251</td>
+  <td></td>
+  <td>M.No.: 47293</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Place   : MUMBAI</th>
+  <th>Place   :</td>
+  <td></td>
+  <th>Place   :</th>
+  <td></td>
+  <th>Place   :</th>
+</tr>
+<tr>
+  <th>Dated  : </th>
+  <th>Dated  : </th>
+  <td></td>
+  <th>Dated  : </th>
+  <td></td>
+  <th>Dated  : </th>
+</tr>
+</table>
+        </div>
+
+
+
+
+
+</div>
+
+
+<div id="Payment_History" class="tabcontent">
+  <div class="container-fluid">
+
+<table>
+<tr>
+<th></th>
+<th>Notes</th>
+<th>As at March31, 2019 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+<td></td>
+<th>As at March31, 2018 <br> <span style="font-size: 12px;"><i> ( Rs. in Lakhs) </i>  </span></th>
+</tr>
+
+<tr>
+  <th>EQUITY AND LIABILITIES</th>
+  <th></th>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>&nbsp;</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Shareholders' funds</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Share capital</td>
+  <td>3</td>
+  <td>{{sc}}</td>
+  <td></td>
+  <td>20,011.87</td>
+</tr>
+<tr>
+  <td>Reserves and surplus</td>
+  <td>4</td>
+  <td>2,643.86</td>
+  <td></td>
+  <td>(3,289.22)</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <th>4,143.86</th>
+  <td></td>
+  <th>16,722.65</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Non-current liabilities</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Long-term provisions</td>
+  <td>5</td>
+  <td>245.86</td>
+  <td></td>
+  <td>201.57</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <th>245.86</th>
+  <td></td>
+  <th>201.57</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Current liabilities</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Other current liabilities</td>
+  <td>6</td>
+  <td>13,186.08</td>
+  <td></td>
+  <td>81.66</td>
+</tr>
+<tr>
+  <td>Short-term provisions</td>
+  <td>7</td>
+  <td>475.18</td>
+  <td></td>
+  <td>475.18</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <th>13,661.26</th>
+  <td></td>
+  <th>556.83</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <th>18,050.89</th>
+  <td></td>
+  <th>17,481.06</th>
+</tr>
+<tr>
+  <th>ASSETS</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Non-current assets</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Fixed assets</td>
+  <td>8</td>
+  <td>1,406.16</td>
+  <td></td>
+  <td>1,468.83</td>
+</tr>
+<tr>
+  <td>Deferred Tax assets (net)</td>
+  <td>9</td>
+  <td>395.13</td>
+  <td></td>
+  <td>395.13</td>
+</tr>
+<tr>
+  <td>Long-term loans and advances</td>
+  <td>10</td>
+  <td>1093.14</td>
+  <td></td>
+  <td>985.27</td>
+</tr>
+<tr>
+  <td>Other non-current assets</td>
+  <td>11</td>
+  <td>0.08</td>
+  <td></td>
+  <td>0.08</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <th>2,894.51</th>
+  <td></td>
+  <th>2,849.31</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Current assets</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Trade receivables</td>
+  <td>12</td>
+  <td>3,224.88</td>
+  <td></td>
+  <td>3,125.93</td>
+</tr>
+<tr>
+  <td>Cash and cash equivalents</td>
+  <td>13</td>
+  <td>11,831.57</td>
+  <td></td>
+  <td>8,202.02</td>
+</tr>
+<tr>
+  <td>Short-term loans and advances</td>
+  <td>14</td>
+  <td>74.01</td>
+  <td></td>
+  <td>3,275.79</td>
+</tr>
+<tr>
+  <td>Other current assets</td>
+  <td>15</td>
+  <td>26.01</td>
+  <td></td>
+  <td>28.00</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <th>15,156.47</th>
+  <td></td>
+  <th>14,631.75</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <th>18,050.98</th>
+  <td></td>
+  <th>17,481.06</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Corporate information and significant accounting policies</th>
+  <td>1 & 2</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Contingent liabilities and commitments</th>
+  <td>25</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Other notes</th>
+  <td>26 to 33</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>The accompanying notes 1 to 33 are an integral part of the Financial Statements</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>"As per our Report of even date"</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>For desai & Bhagtaney</th>
+  <th colspan="4" >ON BEHALF OF THE BOARD OF DIRECTORS</th>
+</tr>
+<tr>
+  <th>Firm Registration Number:115646W</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Chartered Accountants</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>Shailesh Desai</th>
+  <th>PAUL JACKAMAN</th>
+  <th>GIRISH  KOULGI</th>
+  <td></td>
+  <th>ARCHANA PATIL</th>
+</tr>
+<tr>
+  <th>Partner</th>
+  <td>Director</td>
+  <td>Director</td>
+  <td></td>
+  <td>Company Secretary</td>
+</tr>
+<tr>
+  <th>Membership Number: 036935</th>
+  <td>DIN:07433224</td>
+  <td>DIN:07336251</td>
+  <td></td>
+  <td>M.No.: 47293</td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>Place :</th>
+  <th>Place :</th>
+  <th>Place :</th>
+  <td></td>
+  <th>Place :</th>
+</tr>
+<tr>
+  <th>Dated :</th>
+  <th>Dated :</th>
+  <th>Dated :</th>
+  <td></td>
+  <th>Dated :</th>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+</table>
+
+        </div>
+</div>
+
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" align="center">Business Profile Form Errors!!!</h5>
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" align="center">
+				<strong style="color:red;">{{bp.registered_mobile.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.company_name.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.address.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.city.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.district.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.state.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.GSTIN.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{bp.mobile1.errors | striptags}} </strong><br>
+				<strong style="color:red;">{{form.zip_code.errors| striptags}}</strong><br>
+				<strong style="color:red;">{{form.company_email.errors| striptags}}</strong><br>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+</div>
+
+{% if errors %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#exampleModal").modal("show");
+		});
+	</script>
+{% endif %}
+  <!-- End of Page Wrapper -->
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{% static 'js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
+</body>
+
+</html>

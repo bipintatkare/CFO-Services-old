@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>s</title>
+	<style>
+
+
+
+          table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid #eee;
+
+
+
+          }
+
+          th {
+
+            padding: 8px;
+                        border: 1px solid black;
+
+
+          }
+
+          td {
+            border: 1px solid black;
+            padding: 5px;
+
+          }
+
+          .alignL {
+            text-align: left; padding-left: 15px;
+            color: black;
+            font-size: 13px;
+          }
+
+          .alignR {
+            text-align: right; padding-right: 10px;
+          }
+
+
+</style>
+</head>
+<body>
+<h3>Dear Owner,<br>here is your Liquidity Barometer Of Business Report by CFO Services</h3>
+<br>
+<center>
+<h2> Liquidity Barometer Of Business As On Date - {{for_date}} - {{for_company}}</h2>
+<table style="width: 80%;">
+	<tr>
+		<th style="width: 70%; text-align: center; background-color: #606060; color: white;">  Particulars </th>
+		<th style="text-align: center; background-color: #606060; color: white;">Amount </th>
+	</tr>
+
+	{% for object in current_assets %}
+	<tr>
+		<td class="alignL">{{object.name | title}}</td>
+		<td class="alignR">{{object.amt}}</td>
+
+	</tr>
+{% endfor %}
+	<tr>
+
+		<td class="alignL"> <b>Total Current Assets (A) </b></td>
+		<th class="alignR"><b>{{current_assets_val}}</b></th>
+	
+	</tr>
+
+		{% for object in current_liablities %}
+	<tr>
+		<td class="alignL">{{object.name | title}}</td>
+		<td class="alignR">{{object.amt}}</td>
+
+	</tr>
+{% endfor %}
+
+	<tr>
+		<td class="alignL"><b>Total Current Liabilities (B)</b></td>
+		<th class="alignR"><b>{{current_liablities_val}}</b></th>
+	</tr>
+
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<td class="alignL"><b>Net Liquid Funds (A-B)</td>
+				<td class="alignR"><b>{{a_b_value}}</b></td>
+
+	</tr>
+
+
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<td class="alignL"><b>Less: Bank Overdraft Utilized </b></td>
+		<td class="alignR"><b>{{od_ac_value}}</b></td>
+	</tr>
+
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td class="alignL"><b><b>Less: Bank Open Cash Credit Utilized </b></td>
+		<td class="alignR"><b>{{occ_ac_value}}</b></td>
+	</tr>
+
+	<tr>
+		<td>&nbsp; </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<td class="alignL"><b>Net Liquidity In Company</b></td>
+				<td class="alignR"><b>{{a_b_value_final}}</b></td>
+
+	</tr>
+	
+
+</table>
+
+    <br>
+    <br>
+<h5>Last Sync- {{last_sync}}</h5>
+
+
+
+ </center>
+<div style="float: right;">
+
+<h4>POWERED BY </h4>
+    <img height="70" width="170" src="http://65.2.146.150/static/media/logo-light.bbfe1454.png"/>
+</div>
+</body>
+</html>

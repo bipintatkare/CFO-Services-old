@@ -1,0 +1,75 @@
+ <!doctype html>
+<html>
+  <head>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container" id='container' >
+
+<div id="wrapper">
+     {% load humanize %}
+    <br>
+    <center>
+       <h3>{{data}}</h3>
+
+
+    </center>
+<center>
+  <div class="container" style="background-color: #fff;">
+ <br>
+
+    <table style="border-collapse: collapse; width: 100%;" class="table table table-bordered">
+              <thead class="thead-dark">
+              <tr>
+               <th style="border: 1px solid #ddd; background-color: #00A0C8; color: white; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Voucher Number</center></th>
+                                <th style="border: 1px solid #ddd; background-color: #00A0C8; color: white; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Voucher Date  </center></th>
+
+                  <th style="border: 1px solid #ddd; background-color: #00A0C8; color: white; padding: 8px; text-align: center;" scope="row" colspan="2"><center>Ledger </center></th>
+                <th style="border: 1px solid #ddd; background-color: #00A0C8; color: white; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Type </center></th>
+                <th style="border: 1px solid #ddd; background-color: #00A0C8; color: white; padding: 8px; text-align: center;" scope="row" colspan="1"><center>Amount </center></th>
+              </tr>
+            </thead>
+            <tbody>
+
+            {% for obj in queryset %}
+              <tr style="background-color: #fff;">
+                                    <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1">{{obj.voucher_id.v_number}}  </td>
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1">{{obj.voucher_id.voucher_date}} </td>
+
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: left;" scope="row" colspan="2"> {{obj.ledger_name_temp}}</td>
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: center;" scope="row" colspan="1">{{obj.type}}  </td>
+
+                  <td style="border: 1px solid #ddd; padding: 8px; text-align: right;" scope="row" colspan="1"> {{obj.amt|floatformat:2|intcomma}}  </td>
+
+              </tr>
+{% endfor %}
+
+             </tbody>
+      </table>
+
+
+    <br>
+<h5>Last Sync- {{last_sync}}</h5>
+
+
+
+
+  </div>
+</center>
+   <div style="float: right;">
+
+<h4>POWERED BY </h4>
+    <img height="70" width="170" src="http://65.2.146.150/static/media/logo-light.bbfe1454.png"/>
+</div>
+</div>
+
+
+
+
+
+    </div>
+
+
+  </body>
+</html>
